@@ -1,0 +1,70 @@
+.orders-container{
+    text-align: center;
+
+    h3{
+        font-size: 22px;
+        margin: 50px 0;
+    }
+
+    .error{
+        color: salmon;
+        font-size: 15px;
+        margin: 10px 0;
+    }
+
+    .orders-list{
+        
+        width: 75%;
+        margin: auto;
+        margin-bottom: 50px;
+        border-radius: 3px;
+        overflow: hidden;
+        
+    }
+
+    .each-order{
+        min-height: 40px;
+        align-self: center;  
+        padding: 20px;        
+        background-color: rgb(241, 220, 220);
+        display: flex;
+        justify-content: space-between;
+        &:nth-child(2n){
+            background-color:  #f5f5f5 ;
+        }
+
+        text-transform: capitalize;
+        align-items: center;
+
+        p{
+            font-size: 19px;
+        }
+
+        .ingredients{
+            width: 50%;
+
+            span{
+                display: inline-block;
+                padding: 5px;
+                margin: 5px;
+                border-radius: 2px;
+                border: 1px black solid;
+            }
+        }
+        
+    }
+}
+
+@media (max-width: 1000px) {
+
+   .orders-container{
+       h3{
+           font-size: 18px;
+       }
+       .each-order{
+           p{
+              font-size: 17px;
+           }
+       }
+   }
+}

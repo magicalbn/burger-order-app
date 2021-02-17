@@ -1,0 +1,372 @@
+@import './toolbar'; 
+@import './checkoutpage';
+@import './orders';
+@import './auth';
+
+body{
+    text-align: center;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    padding-top: 0; 
+    background-color: white;   
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Public Sans', sans-serif;
+}
+
+main{
+    margin-top: 60px;
+    &>.loader{
+        margin-top: 170px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 92vh;
+}
+
+.buttons{
+        margin-top: 20px;
+        button{
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 150px;
+            padding: 8px;
+            margin-right: 50px;
+            outline: none;
+            border: none;
+            background-color: #00000000;
+            transition: all 300ms ease-in-out;
+        }
+
+        .cancel{
+            color: rgb(218, 91, 91);
+            border: 1px solid rgb(218, 91, 91);
+            &:hover{
+                color: white;
+                background-color: rgb(218, 91, 91);
+            }
+        }
+
+        .continue{
+            color: rgb(31, 182, 31);
+            border: 1px solid rgb(31, 182, 31);
+            &:hover{
+                color: white;
+                background-color: rgb(31, 182, 31);
+            }
+        }
+    }
+
+
+.Burger{
+  display: block;
+    width: 80%;
+    height: 250px;
+    margin: auto;
+    border-bottom: 1px salmon solid;
+    border-radius: 3px;
+    text-align: center;
+    overflow: scroll;
+    
+    justify-content: center;
+    align-items: center;
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
+
+    p{
+        font-size: 25px;
+        font-weight: bold;
+    }
+    
+    
+}
+
+.Controls{
+    width: 100%;
+    background-color: rgb(241, 234, 211);
+    padding: 30px 0;
+    margin: auto;
+    margin-bottom: 0;
+    
+
+    .total{
+        margin-bottom: 20px;;
+    }
+    .each{
+        max-width: 700px;
+        height: 50px;
+        display: flex;
+        align-items: flex-start;
+        margin: auto;
+        margin-bottom: 25px;
+        align-items: center;
+        
+        
+        text-align: left;
+        p{
+            flex: 2;
+        }
+        button{
+            margin: 0 50px;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            flex: 1;
+            display: inline-block;
+            outline: none;
+            border:none;
+            border-radius: 5px;
+            height: 100%;
+            width: 40px;
+            color: white; 
+            opacity: 1;
+            transition: all 300ms ease-in-out;   
+                        
+        }
+
+        .Less{
+            background-color: rgb(218, 91, 91);
+            &:disabled{
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+        }
+        .More{
+            background-color: rgb(70, 214, 70);
+            &:disabled{
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+        }
+
+
+    }
+}
+
+
+.Modal{
+   
+    transition: all 300ms ease-in-out;
+    z-index: 6;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-30%);
+    width: 60%;
+    background-color: whitesmoke;
+    text-align: left;
+    padding: 50px;
+    box-shadow: 0px 2px 10px rgba($color: #000000, $alpha: 0.3);
+    border-radius: 5px;
+
+    &.hideSummary{
+        opacity: 0;
+        top: 25%;
+        pointer-events: none;
+       
+    }
+
+    &.showSummary{
+       opacity: 1;
+       top: 30%;
+       pointer-events: all;
+    }
+    h3{
+        margin-bottom: 20px;
+    }
+
+    p{
+        margin-bottom: 10px;
+    }
+
+
+    ul{
+        list-style: none;
+        text-decoration: none;
+        margin: 30px 0;
+        margin-left: 40px;
+
+        li{
+            &:not(:last-child){
+                margin-bottom: 8px;
+            }
+            span{
+                text-transform: capitalize;
+            }
+        }
+    }
+
+    h4{
+        margin-bottom: 15px;
+    }
+
+
+    
+}
+
+.backdrop{
+    z-index: 4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(51, 53, 53);
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 750px){
+    .Controls{
+        p{
+            font-size: 20px;
+        }
+
+        .each{
+            height: 40px;
+            width: 75%;
+            margin-bottom: 15px;
+            justify-content: space-around;
+
+
+            button{
+                padding: 0;
+                margin: 0 6px;
+                font-size:  18px;;
+            }
+        }
+    }
+
+    .OrderButton{
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    main{
+        margin-top: 65px;;
+    }
+    .Burger{
+        width: 300px;
+        height: 300px;
+        
+    }
+
+    .Controls{
+        p{
+            font-size: 15px;
+        }
+
+        .each{
+            height: 35px;
+            width: 75%;
+            margin-bottom: 15px;
+            justify-content: space-around;
+
+
+            button{
+                padding: 0;
+                margin: 0 6px;
+                font-size: 14px;
+            }
+        }
+    }
+
+    .OrderButton{
+        font-size: 15px;
+    }
+
+    .Modal{
+        padding: 30px;
+
+        h3{
+            font-size: 20px;
+        }
+
+        p{
+            font-size: 17px;
+        }
+
+        ul{
+            margin-left: 20px;
+            li{
+                font-size: 18px;
+            }
+        }
+
+        h4{
+            font-size: 18px;
+        }
+
+        
+    }
+
+    .buttons{
+        margin-top: 10px;
+        button{
+           
+            font-size: 17px;
+            font-weight: bold;
+            
+            width: 90px;
+            padding: 7px;
+            margin-right: 10px;
+            outline: none;
+            border: none;
+            background-color: #00000000;
+            transition: all 300ms ease-in-out;
+        }
+
+        .cancel{
+            color: rgb(218, 91, 91);
+            border: 1px solid rgb(218, 91, 91);
+            &:hover{
+                color: white;
+                background-color: rgb(218, 91, 91);
+            }
+        }
+
+        .continue{
+            color: rgb(31, 182, 31);
+            border: 1px solid rgb(31, 182, 31);
+            &:hover{
+                color: white;
+                background-color: rgb(31, 182, 31);
+            }
+        }
+    }
+
+
+}
+
+
+
+@media (min-width: 500px) and (min-height: 401px){
+    main{
+        margin-top: 75px;
+    }
+    .Burger{
+        width: 450px;
+        height: 400px;
+    }
+}
+
+@media (min-width: 1000px) and (min-height: 780px){
+
+    
+    .Burger{
+        width: 700px;
+        height: 600px;
+    }
+}
+
